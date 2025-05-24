@@ -1,11 +1,10 @@
 services:
   - type: web
-    name: n8n-dev-2
+    name: n8n
     env: docker
     plan: starter
-    dockerfilePath: Dockerfile
-    dockerContext: .
-    autoDeploy: true
+    image: n8nio/n8n:1.94.0
+    autoDeploy: false
     envVars:
       - key: N8N_BASIC_AUTH_ACTIVE
         value: true
@@ -14,7 +13,7 @@ services:
       - key: N8N_BASIC_AUTH_PASSWORD
         value: changeme123
       - key: N8N_ENCRYPTION_KEY
-        value: REPLACE_WITH_32_CHAR_KEY
+        value: YOUR_32_CHAR_SECRET_KEY
       - key: N8N_HOST
         value: n8n-dev-2.onrender.com
       - key: N8N_PROTOCOL
